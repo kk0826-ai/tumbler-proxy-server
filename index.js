@@ -11,19 +11,22 @@ const app = express();
 app.use(cors());
 
 // This is the main endpoint that our front-end will call.
-// e.g., /api/freepik?query=cats&limit=10
+// e.g., /api/freepik?query=cats&limit=10&apiKey=YOUR_FRONTEND_KEY
 app.get('/api/freepik', async (req, res) => {
   // Get the search query and limit from the request
-  const { query, limit } = req.query;
+  const { query, limit, apiKey: frontendApiKey } = req.query;
   
   // Get the secure API key from the server's environment variables.
-  // This is the key you will set in your Vercel project settings.
-  const apiKey = process.env.FREEPIK_API_KEY;
+  const backendApiKey = process.env.FREEPIK_API_KEY;
 
-  if (!apiKey) {
+  if (!backendApiKey) {
     // If the API key is not set on the server, return an error.
     return res.status(500).json({ error: 'API key is not configured on the server.' });
   }
+
+  // Use the key from the backend environment variable. 
+  // The key from the frontend is just for validation and is not used here for security.
+  const apiKeyToUse = backendApiKey;
 
   if (!query) {
     // If no search query is provided, return an error.
@@ -37,7 +40,7 @@ app.get('/api/freepik', async (req, res) => {
     // Make the request to the Freepik API from our secure server
     const freepikResponse = await fetch(apiUrl, {
       headers: {
-        'x-freepik-api-key': apiKey,
+        'x-freepik-api-key': apiKeyToUse,
         'Accept': 'application/json',
       },
     });
@@ -47,7 +50,7 @@ app.get('/api/freepik', async (req, res) => {
       // If not, forward the error from Freepik back to our front-end
       const errorData = await freepikResponse.json();
       console.error('Freepik API Error:', errorData);
-      return res.status(freepikResponse.status).json({ error: `Freepik API Error: ${errorData.message}` });
+      return res.status(freepikResponse.status).json({ error: `Freepik API Error: ${errorData.message || 'Unknown Error'}` });
     }
 
     // If successful, get the JSON data from Freepik's response
