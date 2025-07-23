@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>Freepik Tumbler Design Generator</h1>
-            <p>Search for images, select your favorite, and instantly generate a 20oz tapered tumbler wrap.</p>
+            <h1>Freepik Tapered Tumbler Wrap Generator</h1>
+            <p>Search for an image, enter your tumbler's dimensions, and generate a print-ready tapered wrap.</p>
         </header>
 
         <main>
             <div class="controls">
-                <input type="text" id="searchInput" placeholder="e.g., retro floral pattern">
+                <input type="text" id="searchInput" placeholder="e.g., vintage floral background">
                 <button id="searchBtn">Search</button>
             </div>
 
@@ -27,14 +27,10 @@
                 <p class="placeholder-text">Your image results will appear here.</p>
             </div>
 
-            <div class="generator-controls">
-                <div class="wrap-options">
-                    <label>Wrap Type:</label>
-                    <input type="radio" id="straight" name="wrapType" value="straight" checked>
-                    <label for="straight">Straight</label>
-                    <input type="radio" id="seamless" name="wrapType" value="seamless">
-                    <label for="seamless">Seamless</label>
-                </div>
+            <div class="generator-controls dimension-controls">
+                <input type="number" id="topDiameter" placeholder="Top Diameter (inches)">
+                <input type="number" id="bottomDiameter" placeholder="Bottom Diameter (inches)">
+                <input type="number" id="height" placeholder="Height (inches)">
                 <button id="generateBtn" disabled>Generate Wrap</button>
             </div>
 
