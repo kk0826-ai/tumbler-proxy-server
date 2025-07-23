@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freepik Tumbler Design Generator</title>
+    <title>Freepik Tapered Tumbler Wrap Generator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,12 @@
     <div class="container">
         <header>
             <h1>Freepik Tapered Tumbler Wrap Generator</h1>
-            <p>Search for an image, enter your tumbler's dimensions, and generate a print-ready tapered wrap.</p>
+            <p>Search for an image, select a preset tumbler size, and instantly generate a print-ready wrap.</p>
         </header>
 
         <main>
             <div class="controls">
-                <input type="text" id="searchInput" placeholder="e.g., vintage floral background">
+                <input type="text" id="searchInput" placeholder="e.g., retro groovy pattern">
                 <button id="searchBtn">Search</button>
             </div>
 
@@ -28,6 +28,7 @@
             </div>
 
             <div class="generator-controls dimension-controls">
+                <select id="presetSelector"></select>
                 <input type="number" id="topDiameter" placeholder="Top Diameter (inches)">
                 <input type="number" id="bottomDiameter" placeholder="Bottom Diameter (inches)">
                 <input type="number" id="height" placeholder="Height (inches)">
