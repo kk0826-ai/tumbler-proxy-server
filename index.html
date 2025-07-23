@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freepik Tumbler Design Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Freepik Tumbler Design Generator</h1>
+            <p>Search for images, select your favorite, and instantly generate a 20oz tapered tumbler wrap.</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <input type="text" id="searchInput" placeholder="e.g., retro floral pattern">
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div id="loader" class="loader" style="display: none;"></div>
+            <div id="gallery" class="gallery">
+                <p class="placeholder-text">Your image results will appear here.</p>
+            </div>
+
+            <div class="generator-controls">
+                <div class="wrap-options">
+                    <label>Wrap Type:</label>
+                    <input type="radio" id="straight" name="wrapType" value="straight" checked>
+                    <label for="straight">Straight</label>
+                    <input type="radio" id="seamless" name="wrapType" value="seamless">
+                    <label for="seamless">Seamless</label>
+                </div>
+                <button id="generateBtn" disabled>Generate Wrap</button>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="tumblerCanvas"></canvas>
+            </div>
+
+            <div class="download-section">
+                <button id="downloadBtn" class="hidden">Download Wrap</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
