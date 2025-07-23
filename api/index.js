@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 
 // Define the search route
-app.get('/api/search', async (req, res) => {
+app.get('/search', async (req, res) => {
   // Get the search query from the request
   const { query } = req.query;
 
