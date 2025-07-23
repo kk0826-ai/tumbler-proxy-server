@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freepik Tapered Tumbler Wrap Generator</title>
+    <title>Freepik 20oz Tumbler Wrap Generator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>Freepik Tapered Tumbler Wrap Generator</h1>
-            <p>Search for an image, select a preset tumbler size, and instantly generate a print-ready wrap.</p>
+            <h1>Freepik 20oz Tumbler Wrap Generator</h1>
+            <p>Search for an image, choose a wrap style, and instantly generate a print-ready design.</p>
         </header>
 
         <main>
             <div class="controls">
-                <input type="text" id="searchInput" placeholder="e.g., retro groovy pattern">
+                <input type="text" id="searchInput" placeholder="e.g., seamless leopard print">
                 <button id="searchBtn">Search</button>
             </div>
 
@@ -27,11 +27,14 @@
                 <p class="placeholder-text">Your image results will appear here.</p>
             </div>
 
-            <div class="generator-controls dimension-controls">
-                <select id="presetSelector"></select>
-                <input type="number" id="topDiameter" placeholder="Top Diameter (inches)">
-                <input type="number" id="bottomDiameter" placeholder="Bottom Diameter (inches)">
-                <input type="number" id="height" placeholder="Height (inches)">
+            <div class="generator-controls">
+                <div class="wrap-options">
+                    <label>Wrap Style:</label>
+                    <input type="radio" id="straight" name="wrapType" value="straight" checked>
+                    <label for="straight">Straight</label>
+                    <input type="radio" id="tapered" name="wrapType" value="tapered">
+                    <label for="tapered">Tapered</label>
+                </div>
                 <button id="generateBtn" disabled>Generate Wrap</button>
             </div>
 
