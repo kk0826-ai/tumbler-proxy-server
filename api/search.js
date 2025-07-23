@@ -1,5 +1,5 @@
 // /api/search.js
-
+console.log("API Key is:", process.env.FREEPIK_API_KEY ? "FOUND" : "MISSING");
 export default async function handler(req, res) {
   const { query } = req.query;
 
