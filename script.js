@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURATION ---
-    const API_BASE_URL = 'https://tumbler-proxy-server.vercel.app';
+    const API_BASE_URL = '';
     const DPI = 300; 
 
     // Hard-coded dimensions for standard 20oz tumblers. No user input needed.
