@@ -1,3 +1,5 @@
+// /api/search.js
+
 export default async function handler(req, res) {
   const { query } = req.query;
 
@@ -5,10 +7,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing search query" });
   }
 
-  try {
-    const apiKey = process.env.FREEPIK_API_KEY; // store your API key in Vercel
-    const apiUrl = `https://api.freepik.com/v1/resources?term=${encodeURIComponent(query)}&type=photo&limit=20`;
+  const apiKey = process.env.FREEPIK_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: "Server misconfiguration: API key missing" });
+  }
 
+  const apiUrl = `https://api.freepik.com/v1/resources?term=${encodeURIComponent(query)}&type=photo&limit=20`;
+
+  try {
     const response = await fetch(apiUrl, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -22,8 +28,8 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    // Extract thumbnail URLs from Freepik response
-    const imageUrls = data.resources.map(item => item.thumbnail_url);
+    // Extract thumbnail URLs (adjust property name based on actual Freepik response)
+    const imageUrls = data.resources.map((item) => item.thumbnail_url);
 
     res.status(200).json({ images: imageUrls });
   } catch (error) {
